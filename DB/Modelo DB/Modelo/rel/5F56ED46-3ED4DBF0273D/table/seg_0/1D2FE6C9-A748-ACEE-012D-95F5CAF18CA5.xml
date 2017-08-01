@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1D2FE6C9-A748-ACEE-012D-95F5CAF18CA5" name="HISTORIAL">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 12:46:43 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_historial" id="66E42E77-0043-A351-2582-569A25990A9E">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 12:59:21 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="observaciones" id="C146B843-F4E1-C724-89E9-5D693AA0AD90">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 12:59:21 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cita" id="A7274B8F-6358-3617-06EF-A9C7E05E0DFE">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 13:07:41 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="67523BD2-38D8-3C50-19D9-C47CE5BCBF98" referredColumn="FC1FEAB5-F061-3D39-2D63-2C3DD88256B6"/>
+</associations>
+</Column>
+<Column name="receta" id="6A1379E6-1EE9-79A4-E46E-ED942D3787E3">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 13:08:43 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A1BEDD50-474B-1EBD-C478-C2C18D04AC18" referredColumn="B7D47580-9AD6-05F4-1803-E905DDC8ED01"/>
+</associations>
+</Column>
+<Column name="enfermedad" id="BCADB91B-A5BA-4F67-ABFC-5348159CBF33">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 13:08:43 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A9414022-3221-4DA5-C04B-C65F4BEECBA0" referredColumn="0D9908D9-AA71-6309-9721-DC442ACC9FDF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="84E629FD-60B3-E3D3-8BBE-502BAF7A832B" name="HISTORIAL_PK">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 12:59:21 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66E42E77-0043-A351-2582-569A25990A9E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3C491F35-0612-0A0C-722B-717F53A4E5A4" name="HISTORIAL_ENFERMEDAD_FK">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-04 00:03:58 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BCADB91B-A5BA-4F67-ABFC-5348159CBF33"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7A962CF0-329C-B944-AD49-2D314AFC6986" name="HISTORIAL_CITA_FK">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-04 00:04:08 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A7274B8F-6358-3617-06EF-A9C7E05E0DFE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A161137F-39E5-F443-49C2-780262B37D58" name="HISTORIAL_RECETA_FK">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-04 00:04:36 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6A1379E6-1EE9-79A4-E46E-ED942D3787E3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,618 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PROYECTOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CITA">
+          <Key>
+            <PropertyRef Name="id_cita" />
+          </Key>
+          <Property Name="id_cita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="hora" Type="varchar" MaxLength="50" />
+          <Property Name="paciente" Type="int" Nullable="false" />
+          <Property Name="personal" Type="int" Nullable="false" />
+          <Property Name="sala" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ENFERMEDAD">
+          <Key>
+            <PropertyRef Name="id_enfermedad" />
+          </Key>
+          <Property Name="id_enfermedad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="HISTORIAL">
+          <Key>
+            <PropertyRef Name="id_historial" />
+          </Key>
+          <Property Name="id_historial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="observaciones" Type="varchar" MaxLength="250" />
+          <Property Name="cita" Type="int" Nullable="false" />
+          <Property Name="receta" Type="int" Nullable="false" />
+          <Property Name="enfermedad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MEDICAMENTO">
+          <Key>
+            <PropertyRef Name="id_medicamento" />
+          </Key>
+          <Property Name="id_medicamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="cantidad" Type="int" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="PACIENTE">
+          <Key>
+            <PropertyRef Name="id_paciente" />
+          </Key>
+          <Property Name="id_paciente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="contrasenia" Type="varchar" MaxLength="50" />
+          <Property Name="dpi" Type="varchar" MaxLength="50" />
+          <Property Name="fecha_nac" Type="date" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="no_tarjeta" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PERSONAL">
+          <Key>
+            <PropertyRef Name="id_personal" />
+          </Key>
+          <Property Name="id_personal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="tipo_puesto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RECETA">
+          <Key>
+            <PropertyRef Name="id_receta" />
+          </Key>
+          <Property Name="id_receta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="medicamento" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SALA">
+          <Key>
+            <PropertyRef Name="id_sala" />
+          </Key>
+          <Property Name="id_sala" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="descripción" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="TIPO_PUESTO">
+          <Key>
+            <PropertyRef Name="id_tipo" />
+          </Key>
+          <Property Name="id_tipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="50" />
+          <Property Name="pass" Type="varchar" MaxLength="50" />
+          <Property Name="tipo" Type="int" />
+        </EntityType>
+        <Association Name="CITA_PACIENTE_FK">
+          <End Role="PACIENTE" Type="Self.PACIENTE" Multiplicity="1" />
+          <End Role="CITA" Type="Self.CITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PACIENTE">
+              <PropertyRef Name="id_paciente" />
+            </Principal>
+            <Dependent Role="CITA">
+              <PropertyRef Name="paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CITA_PERSONAL_FK">
+          <End Role="PERSONAL" Type="Self.PERSONAL" Multiplicity="1" />
+          <End Role="CITA" Type="Self.CITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONAL">
+              <PropertyRef Name="id_personal" />
+            </Principal>
+            <Dependent Role="CITA">
+              <PropertyRef Name="personal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CITA_SALA_FK">
+          <End Role="SALA" Type="Self.SALA" Multiplicity="1" />
+          <End Role="CITA" Type="Self.CITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SALA">
+              <PropertyRef Name="id_sala" />
+            </Principal>
+            <Dependent Role="CITA">
+              <PropertyRef Name="sala" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HISTORIAL_CITA_FK">
+          <End Role="CITA" Type="Self.CITA" Multiplicity="1" />
+          <End Role="HISTORIAL" Type="Self.HISTORIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITA">
+              <PropertyRef Name="id_cita" />
+            </Principal>
+            <Dependent Role="HISTORIAL">
+              <PropertyRef Name="cita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HISTORIAL_ENFERMEDAD_FK">
+          <End Role="ENFERMEDAD" Type="Self.ENFERMEDAD" Multiplicity="1" />
+          <End Role="HISTORIAL" Type="Self.HISTORIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENFERMEDAD">
+              <PropertyRef Name="id_enfermedad" />
+            </Principal>
+            <Dependent Role="HISTORIAL">
+              <PropertyRef Name="enfermedad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HISTORIAL_RECETA_FK">
+          <End Role="RECETA" Type="Self.RECETA" Multiplicity="1" />
+          <End Role="HISTORIAL" Type="Self.HISTORIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECETA">
+              <PropertyRef Name="id_receta" />
+            </Principal>
+            <Dependent Role="HISTORIAL">
+              <PropertyRef Name="receta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERSONAL_TIPO_PUESTO_FK">
+          <End Role="TIPO_PUESTO" Type="Self.TIPO_PUESTO" Multiplicity="1" />
+          <End Role="PERSONAL" Type="Self.PERSONAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_PUESTO">
+              <PropertyRef Name="id_tipo" />
+            </Principal>
+            <Dependent Role="PERSONAL">
+              <PropertyRef Name="tipo_puesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RECETA_MEDICAMENTO_FK">
+          <End Role="MEDICAMENTO" Type="Self.MEDICAMENTO" Multiplicity="1" />
+          <End Role="RECETA" Type="Self.RECETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDICAMENTO">
+              <PropertyRef Name="id_medicamento" />
+            </Principal>
+            <Dependent Role="RECETA">
+              <PropertyRef Name="medicamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PROYECTOModelStoreContainer">
+          <EntitySet Name="CITA" EntityType="Self.CITA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ENFERMEDAD" EntityType="Self.ENFERMEDAD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HISTORIAL" EntityType="Self.HISTORIAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MEDICAMENTO" EntityType="Self.MEDICAMENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PACIENTE" EntityType="Self.PACIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSONAL" EntityType="Self.PERSONAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RECETA" EntityType="Self.RECETA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SALA" EntityType="Self.SALA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_PUESTO" EntityType="Self.TIPO_PUESTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="CITA_PACIENTE_FK" Association="Self.CITA_PACIENTE_FK">
+            <End Role="PACIENTE" EntitySet="PACIENTE" />
+            <End Role="CITA" EntitySet="CITA" />
+          </AssociationSet>
+          <AssociationSet Name="CITA_PERSONAL_FK" Association="Self.CITA_PERSONAL_FK">
+            <End Role="PERSONAL" EntitySet="PERSONAL" />
+            <End Role="CITA" EntitySet="CITA" />
+          </AssociationSet>
+          <AssociationSet Name="CITA_SALA_FK" Association="Self.CITA_SALA_FK">
+            <End Role="SALA" EntitySet="SALA" />
+            <End Role="CITA" EntitySet="CITA" />
+          </AssociationSet>
+          <AssociationSet Name="HISTORIAL_CITA_FK" Association="Self.HISTORIAL_CITA_FK">
+            <End Role="CITA" EntitySet="CITA" />
+            <End Role="HISTORIAL" EntitySet="HISTORIAL" />
+          </AssociationSet>
+          <AssociationSet Name="HISTORIAL_ENFERMEDAD_FK" Association="Self.HISTORIAL_ENFERMEDAD_FK">
+            <End Role="ENFERMEDAD" EntitySet="ENFERMEDAD" />
+            <End Role="HISTORIAL" EntitySet="HISTORIAL" />
+          </AssociationSet>
+          <AssociationSet Name="HISTORIAL_RECETA_FK" Association="Self.HISTORIAL_RECETA_FK">
+            <End Role="RECETA" EntitySet="RECETA" />
+            <End Role="HISTORIAL" EntitySet="HISTORIAL" />
+          </AssociationSet>
+          <AssociationSet Name="PERSONAL_TIPO_PUESTO_FK" Association="Self.PERSONAL_TIPO_PUESTO_FK">
+            <End Role="TIPO_PUESTO" EntitySet="TIPO_PUESTO" />
+            <End Role="PERSONAL" EntitySet="PERSONAL" />
+          </AssociationSet>
+          <AssociationSet Name="RECETA_MEDICAMENTO_FK" Association="Self.RECETA_MEDICAMENTO_FK">
+            <End Role="MEDICAMENTO" EntitySet="MEDICAMENTO" />
+            <End Role="RECETA" EntitySet="RECETA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PROYECTOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CITA">
+          <Key>
+            <PropertyRef Name="id_cita" />
+          </Key>
+          <Property Name="id_cita" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="hora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="paciente" Type="Int32" Nullable="false" />
+          <Property Name="personal" Type="Int32" Nullable="false" />
+          <Property Name="sala" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PACIENTE1" Relationship="Self.CITA_PACIENTE_FK" FromRole="CITA" ToRole="PACIENTE" />
+          <NavigationProperty Name="PERSONAL1" Relationship="Self.CITA_PERSONAL_FK" FromRole="CITA" ToRole="PERSONAL" />
+          <NavigationProperty Name="SALA1" Relationship="Self.CITA_SALA_FK" FromRole="CITA" ToRole="SALA" />
+          <NavigationProperty Name="HISTORIAL" Relationship="Self.HISTORIAL_CITA_FK" FromRole="CITA" ToRole="HISTORIAL" />
+        </EntityType>
+        <EntityType Name="ENFERMEDAD">
+          <Key>
+            <PropertyRef Name="id_enfermedad" />
+          </Key>
+          <Property Name="id_enfermedad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="HISTORIAL" Relationship="Self.HISTORIAL_ENFERMEDAD_FK" FromRole="ENFERMEDAD" ToRole="HISTORIAL" />
+        </EntityType>
+        <EntityType Name="HISTORIAL">
+          <Key>
+            <PropertyRef Name="id_historial" />
+          </Key>
+          <Property Name="id_historial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="observaciones" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="cita" Type="Int32" Nullable="false" />
+          <Property Name="receta" Type="Int32" Nullable="false" />
+          <Property Name="enfermedad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CITA1" Relationship="Self.HISTORIAL_CITA_FK" FromRole="HISTORIAL" ToRole="CITA" />
+          <NavigationProperty Name="ENFERMEDAD1" Relationship="Self.HISTORIAL_ENFERMEDAD_FK" FromRole="HISTORIAL" ToRole="ENFERMEDAD" />
+          <NavigationProperty Name="RECETA1" Relationship="Self.HISTORIAL_RECETA_FK" FromRole="HISTORIAL" ToRole="RECETA" />
+        </EntityType>
+        <EntityType Name="MEDICAMENTO">
+          <Key>
+            <PropertyRef Name="id_medicamento" />
+          </Key>
+          <Property Name="id_medicamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cantidad" Type="Int32" />
+          <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RECETA" Relationship="Self.RECETA_MEDICAMENTO_FK" FromRole="MEDICAMENTO" ToRole="RECETA" />
+        </EntityType>
+        <EntityType Name="PACIENTE">
+          <Key>
+            <PropertyRef Name="id_paciente" />
+          </Key>
+          <Property Name="id_paciente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dpi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_nac" Type="DateTime" Precision="0" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="no_tarjeta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CITA" Relationship="Self.CITA_PACIENTE_FK" FromRole="PACIENTE" ToRole="CITA" />
+        </EntityType>
+        <EntityType Name="PERSONAL">
+          <Key>
+            <PropertyRef Name="id_personal" />
+          </Key>
+          <Property Name="id_personal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_puesto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CITA" Relationship="Self.CITA_PERSONAL_FK" FromRole="PERSONAL" ToRole="CITA" />
+          <NavigationProperty Name="TIPO_PUESTO1" Relationship="Self.PERSONAL_TIPO_PUESTO_FK" FromRole="PERSONAL" ToRole="TIPO_PUESTO" />
+        </EntityType>
+        <EntityType Name="RECETA">
+          <Key>
+            <PropertyRef Name="id_receta" />
+          </Key>
+          <Property Name="id_receta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="medicamento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HISTORIAL" Relationship="Self.HISTORIAL_RECETA_FK" FromRole="RECETA" ToRole="HISTORIAL" />
+          <NavigationProperty Name="MEDICAMENTO1" Relationship="Self.RECETA_MEDICAMENTO_FK" FromRole="RECETA" ToRole="MEDICAMENTO" />
+        </EntityType>
+        <EntityType Name="SALA">
+          <Key>
+            <PropertyRef Name="id_sala" />
+          </Key>
+          <Property Name="id_sala" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripción" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CITA" Relationship="Self.CITA_SALA_FK" FromRole="SALA" ToRole="CITA" />
+        </EntityType>
+        <EntityType Name="TIPO_PUESTO">
+          <Key>
+            <PropertyRef Name="id_tipo" />
+          </Key>
+          <Property Name="id_tipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PERSONAL" Relationship="Self.PERSONAL_TIPO_PUESTO_FK" FromRole="TIPO_PUESTO" ToRole="PERSONAL" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipo" Type="Int32" />
+        </EntityType>
+        <Association Name="CITA_PACIENTE_FK">
+          <End Role="PACIENTE" Type="Self.PACIENTE" Multiplicity="1" />
+          <End Role="CITA" Type="Self.CITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PACIENTE">
+              <PropertyRef Name="id_paciente" />
+            </Principal>
+            <Dependent Role="CITA">
+              <PropertyRef Name="paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CITA_PERSONAL_FK">
+          <End Role="PERSONAL" Type="Self.PERSONAL" Multiplicity="1" />
+          <End Role="CITA" Type="Self.CITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONAL">
+              <PropertyRef Name="id_personal" />
+            </Principal>
+            <Dependent Role="CITA">
+              <PropertyRef Name="personal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CITA_SALA_FK">
+          <End Role="SALA" Type="Self.SALA" Multiplicity="1" />
+          <End Role="CITA" Type="Self.CITA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SALA">
+              <PropertyRef Name="id_sala" />
+            </Principal>
+            <Dependent Role="CITA">
+              <PropertyRef Name="sala" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HISTORIAL_CITA_FK">
+          <End Role="CITA" Type="Self.CITA" Multiplicity="1" />
+          <End Role="HISTORIAL" Type="Self.HISTORIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITA">
+              <PropertyRef Name="id_cita" />
+            </Principal>
+            <Dependent Role="HISTORIAL">
+              <PropertyRef Name="cita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HISTORIAL_ENFERMEDAD_FK">
+          <End Role="ENFERMEDAD" Type="Self.ENFERMEDAD" Multiplicity="1" />
+          <End Role="HISTORIAL" Type="Self.HISTORIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENFERMEDAD">
+              <PropertyRef Name="id_enfermedad" />
+            </Principal>
+            <Dependent Role="HISTORIAL">
+              <PropertyRef Name="enfermedad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HISTORIAL_RECETA_FK">
+          <End Role="RECETA" Type="Self.RECETA" Multiplicity="1" />
+          <End Role="HISTORIAL" Type="Self.HISTORIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RECETA">
+              <PropertyRef Name="id_receta" />
+            </Principal>
+            <Dependent Role="HISTORIAL">
+              <PropertyRef Name="receta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RECETA_MEDICAMENTO_FK">
+          <End Role="MEDICAMENTO" Type="Self.MEDICAMENTO" Multiplicity="1" />
+          <End Role="RECETA" Type="Self.RECETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDICAMENTO">
+              <PropertyRef Name="id_medicamento" />
+            </Principal>
+            <Dependent Role="RECETA">
+              <PropertyRef Name="medicamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PERSONAL_TIPO_PUESTO_FK">
+          <End Role="TIPO_PUESTO" Type="Self.TIPO_PUESTO" Multiplicity="1" />
+          <End Role="PERSONAL" Type="Self.PERSONAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_PUESTO">
+              <PropertyRef Name="id_tipo" />
+            </Principal>
+            <Dependent Role="PERSONAL">
+              <PropertyRef Name="tipo_puesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PROYECTOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CITA" EntityType="Self.CITA" />
+          <EntitySet Name="ENFERMEDAD" EntityType="Self.ENFERMEDAD" />
+          <EntitySet Name="HISTORIAL" EntityType="Self.HISTORIAL" />
+          <EntitySet Name="MEDICAMENTO" EntityType="Self.MEDICAMENTO" />
+          <EntitySet Name="PACIENTE" EntityType="Self.PACIENTE" />
+          <EntitySet Name="PERSONAL" EntityType="Self.PERSONAL" />
+          <EntitySet Name="RECETA" EntityType="Self.RECETA" />
+          <EntitySet Name="SALA" EntityType="Self.SALA" />
+          <EntitySet Name="TIPO_PUESTO" EntityType="Self.TIPO_PUESTO" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <AssociationSet Name="CITA_PACIENTE_FK" Association="Self.CITA_PACIENTE_FK">
+            <End Role="PACIENTE" EntitySet="PACIENTE" />
+            <End Role="CITA" EntitySet="CITA" />
+          </AssociationSet>
+          <AssociationSet Name="CITA_PERSONAL_FK" Association="Self.CITA_PERSONAL_FK">
+            <End Role="PERSONAL" EntitySet="PERSONAL" />
+            <End Role="CITA" EntitySet="CITA" />
+          </AssociationSet>
+          <AssociationSet Name="CITA_SALA_FK" Association="Self.CITA_SALA_FK">
+            <End Role="SALA" EntitySet="SALA" />
+            <End Role="CITA" EntitySet="CITA" />
+          </AssociationSet>
+          <AssociationSet Name="HISTORIAL_CITA_FK" Association="Self.HISTORIAL_CITA_FK">
+            <End Role="CITA" EntitySet="CITA" />
+            <End Role="HISTORIAL" EntitySet="HISTORIAL" />
+          </AssociationSet>
+          <AssociationSet Name="HISTORIAL_ENFERMEDAD_FK" Association="Self.HISTORIAL_ENFERMEDAD_FK">
+            <End Role="ENFERMEDAD" EntitySet="ENFERMEDAD" />
+            <End Role="HISTORIAL" EntitySet="HISTORIAL" />
+          </AssociationSet>
+          <AssociationSet Name="HISTORIAL_RECETA_FK" Association="Self.HISTORIAL_RECETA_FK">
+            <End Role="RECETA" EntitySet="RECETA" />
+            <End Role="HISTORIAL" EntitySet="HISTORIAL" />
+          </AssociationSet>
+          <AssociationSet Name="RECETA_MEDICAMENTO_FK" Association="Self.RECETA_MEDICAMENTO_FK">
+            <End Role="MEDICAMENTO" EntitySet="MEDICAMENTO" />
+            <End Role="RECETA" EntitySet="RECETA" />
+          </AssociationSet>
+          <AssociationSet Name="PERSONAL_TIPO_PUESTO_FK" Association="Self.PERSONAL_TIPO_PUESTO_FK">
+            <End Role="TIPO_PUESTO" EntitySet="TIPO_PUESTO" />
+            <End Role="PERSONAL" EntitySet="PERSONAL" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PROYECTOModelStoreContainer" CdmEntityContainer="PROYECTOEntities">
+          <EntitySetMapping Name="CITA">
+            <EntityTypeMapping TypeName="PROYECTOModel.CITA">
+              <MappingFragment StoreEntitySet="CITA">
+                <ScalarProperty Name="id_cita" ColumnName="id_cita" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="paciente" ColumnName="paciente" />
+                <ScalarProperty Name="personal" ColumnName="personal" />
+                <ScalarProperty Name="sala" ColumnName="sala" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENFERMEDAD">
+            <EntityTypeMapping TypeName="PROYECTOModel.ENFERMEDAD">
+              <MappingFragment StoreEntitySet="ENFERMEDAD">
+                <ScalarProperty Name="id_enfermedad" ColumnName="id_enfermedad" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HISTORIAL">
+            <EntityTypeMapping TypeName="PROYECTOModel.HISTORIAL">
+              <MappingFragment StoreEntitySet="HISTORIAL">
+                <ScalarProperty Name="id_historial" ColumnName="id_historial" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="cita" ColumnName="cita" />
+                <ScalarProperty Name="receta" ColumnName="receta" />
+                <ScalarProperty Name="enfermedad" ColumnName="enfermedad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEDICAMENTO">
+            <EntityTypeMapping TypeName="PROYECTOModel.MEDICAMENTO">
+              <MappingFragment StoreEntitySet="MEDICAMENTO">
+                <ScalarProperty Name="id_medicamento" ColumnName="id_medicamento" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PACIENTE">
+            <EntityTypeMapping TypeName="PROYECTOModel.PACIENTE">
+              <MappingFragment StoreEntitySet="PACIENTE">
+                <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+                <ScalarProperty Name="dpi" ColumnName="dpi" />
+                <ScalarProperty Name="fecha_nac" ColumnName="fecha_nac" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="no_tarjeta" ColumnName="no_tarjeta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSONAL">
+            <EntityTypeMapping TypeName="PROYECTOModel.PERSONAL">
+              <MappingFragment StoreEntitySet="PERSONAL">
+                <ScalarProperty Name="id_personal" ColumnName="id_personal" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="tipo_puesto" ColumnName="tipo_puesto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECETA">
+            <EntityTypeMapping TypeName="PROYECTOModel.RECETA">
+              <MappingFragment StoreEntitySet="RECETA">
+                <ScalarProperty Name="id_receta" ColumnName="id_receta" />
+                <ScalarProperty Name="medicamento" ColumnName="medicamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SALA">
+            <EntityTypeMapping TypeName="PROYECTOModel.SALA">
+              <MappingFragment StoreEntitySet="SALA">
+                <ScalarProperty Name="id_sala" ColumnName="id_sala" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripción" ColumnName="descripción" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_PUESTO">
+            <EntityTypeMapping TypeName="PROYECTOModel.TIPO_PUESTO">
+              <MappingFragment StoreEntitySet="TIPO_PUESTO">
+                <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="PROYECTOModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="usuario1" ColumnName="usuario" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

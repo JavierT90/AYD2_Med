@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BAA8BA36-9272-C469-F370-47D892010220" name="PERSONAL">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 12:46:20 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_personal" id="D5E353B5-F1A3-1271-1885-D13417481A05">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 12:55:26 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="4D1A9C14-A942-E50E-7811-714B12F8022A">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 12:55:26 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo_puesto" id="7B9C6C93-39FF-BD5B-EF49-9314C1EEC17D">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 13:06:03 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="ED0C9B41-5FA4-7742-5B0D-DBF8436037A6" referredColumn="001943E2-991D-AEA0-8A65-127B33C81F9B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="56C416EE-DA35-C2A3-DE36-49D3DEDEBC58" name="PERSONAL_PK">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 12:55:26 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D5E353B5-F1A3-1271-1885-D13417481A05"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0BE79C47-2D9E-37B7-BADD-C63E454069D4" name="PERSONAL_TIPO_PUESTO_FK">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-04 00:02:51 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7B9C6C93-39FF-BD5B-EF49-9314C1EEC17D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

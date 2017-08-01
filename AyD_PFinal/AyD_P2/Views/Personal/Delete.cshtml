@@ -1,0 +1,46 @@
+﻿@model AyD_P2.PERSONAL
+
+@{
+    ViewBag.Title = "Delete";
+
+    if (Session["codigo_usuario"] == null)
+    {
+        Response.Redirect("~/Account/Login");
+
+    }
+}
+
+<h2>Eliminar</h2>
+
+<h3>Está seguro de eliminar este empleado?</h3>
+<div>
+    <h4>PERSONAL</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            Puesto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIPO_PUESTO1.nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

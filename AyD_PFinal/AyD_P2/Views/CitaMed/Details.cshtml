@@ -1,0 +1,63 @@
+﻿@model AyD_P2.CITA
+
+@{
+    ViewBag.Title = "Details";
+    if (Session["codigo_usuario"] == null)
+    {
+        Response.Redirect("~/Account/Login");
+
+    }
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>CITA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Fecha
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            Hora
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hora)
+        </dd>
+
+        <dt>
+            Paciente
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PACIENTE1.Nombre)
+        </dd>
+
+        <dt>
+            Personal
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PERSONAL1.nombre)
+        </dd>
+
+        <dt>
+            Sala
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SALA1.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id_cita }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

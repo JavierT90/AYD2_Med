@@ -1,0 +1,49 @@
+﻿@model IEnumerable<AyD_P2.Models.Reportes>
+
+
+ <table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paciente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.personal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sala)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paciente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.personal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sala)
+        </td>
+    </tr>
+}
+</table>
+
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>
+
+

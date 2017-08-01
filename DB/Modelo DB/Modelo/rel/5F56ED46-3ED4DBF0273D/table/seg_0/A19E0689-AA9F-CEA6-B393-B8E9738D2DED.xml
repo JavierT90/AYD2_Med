@@ -1,0 +1,129 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A19E0689-AA9F-CEA6-B393-B8E9738D2DED" name="CITA">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 12:46:39 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_cita" id="FC1FEAB5-F061-3D39-2D63-2C3DD88256B6">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 12:57:43 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha" id="F49C8A2A-1C23-CE15-E420-C32251D44F32">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 12:57:43 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="hora" id="C69CE457-96B2-B110-128D-0008B6934928">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 12:57:43 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="paciente" id="A735BDFA-B7AB-E22D-6261-C369D791BF61">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 13:04:20 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="89BFD495-8F34-AF73-2CB6-DDFECE61977D" referredColumn="D0AA2918-B064-7C62-E039-277A2450A285"/>
+</associations>
+</Column>
+<Column name="personal" id="D57259CA-2777-E0F4-7AF8-0A276A5FF519">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 13:04:20 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6B2361C7-4028-A9DC-47C0-BAD8163B1463" referredColumn="D5E353B5-F1A3-1271-1885-D13417481A05"/>
+</associations>
+</Column>
+<Column name="sala" id="8E452E6B-1561-90BC-692C-C4C9F969DEF3">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 13:04:20 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="87597D93-1CF7-79DE-AA9A-77B0C8839959" referredColumn="DD72475A-825E-67ED-2B65-94A88BBFEAA2"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="906069B3-C6FA-1994-4726-CB81AB806C41" name="CITA_PK">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 12:57:43 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FC1FEAB5-F061-3D39-2D63-2C3DD88256B6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D824F9AC-980C-5E88-3F2B-F7BD5D55CD2A" name="CITA_PERSONAL_FK">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-04 00:03:08 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D57259CA-2777-E0F4-7AF8-0A276A5FF519"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5891530C-5F4D-62A8-9039-D13249723D12" name="CITA_PACIENTE_FK">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-04 00:03:23 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A735BDFA-B7AB-E22D-6261-C369D791BF61"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C96D72D3-A5CF-B431-DA82-BA29FDD904C6" name="CITA_SALA_FK">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-04 00:03:43 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8E452E6B-1561-90BC-692C-C4C9F969DEF3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

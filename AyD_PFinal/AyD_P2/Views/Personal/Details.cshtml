@@ -1,0 +1,40 @@
+﻿@model AyD_P2.PERSONAL
+
+@{
+    ViewBag.Title = "Details";
+
+    if (Session["codigo_usuario"] == null)
+    {
+        Response.Redirect("~/Account/Login");
+
+    }
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>PERSONAL</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            Puesto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIPO_PUESTO1.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id_personal }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

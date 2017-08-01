@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="9541668B-CB6C-2337-9E8B-47FC82009F2D" containerWithKeyObject="5D4A0923-D961-9674-A281-02A78E14BF21" localFKIndex="4CFDE181-25E8-5ECB-6856-9BB4AEE18F72" name="RECETA_MEDICAMENTO_FK">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-04 00:04:27 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>EFE82F20-653E-D5B5-0C50-A20D4E8EEF54</referredTableID>
+<keyObject>A0AD1D1B-156F-C25D-7F09-C2D2DAC062E4</keyObject>
+<referredKeyID>A0AD1D1B-156F-C25D-7F09-C2D2DAC062E4</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

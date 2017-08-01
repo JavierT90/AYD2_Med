@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="A1BEDD50-474B-1EBD-C478-C2C18D04AC18" containerWithKeyObject="1D2FE6C9-A748-ACEE-012D-95F5CAF18CA5" localFKIndex="A161137F-39E5-F443-49C2-780262B37D58" name="HISTORIAL_RECETA_FK">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-04 00:04:36 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>5D4A0923-D961-9674-A281-02A78E14BF21</referredTableID>
+<keyObject>6D4031D8-C336-8C9F-CDFB-338B9A76CA49</keyObject>
+<referredKeyID>6D4031D8-C336-8C9F-CDFB-338B9A76CA49</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

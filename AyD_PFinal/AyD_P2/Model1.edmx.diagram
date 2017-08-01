@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2917036f48af47f4acbffa8ae53d3464" Name="Diagram1">
+        <EntityTypeShape EntityType="PROYECTOModel.CITA" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROYECTOModel.ENFERMEDAD" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROYECTOModel.HISTORIAL" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROYECTOModel.MEDICAMENTO" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROYECTOModel.PACIENTE" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROYECTOModel.PERSONAL" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROYECTOModel.RECETA" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROYECTOModel.SALA" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROYECTOModel.TIPO_PUESTO" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROYECTOModel.USUARIO" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="PROYECTOModel.CITA_PACIENTE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="PROYECTOModel.CITA_PERSONAL_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="PROYECTOModel.CITA_SALA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="PROYECTOModel.HISTORIAL_CITA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="PROYECTOModel.HISTORIAL_ENFERMEDAD_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="PROYECTOModel.HISTORIAL_RECETA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="PROYECTOModel.RECETA_MEDICAMENTO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="PROYECTOModel.PERSONAL_TIPO_PUESTO_FK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

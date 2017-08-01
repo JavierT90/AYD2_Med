@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AyD_P2.HISTORIAL>
+
+@{
+    ViewBag.Title = "Details";
+    if (Session["codigo_usuario"] == null)
+    {
+        Response.Redirect("~/Account/Login");
+
+    }
+}
+
+<h2>Detalles Historial</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </th>
+        <th>
+            Fecha
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ENFERMEDAD1.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RECETA1.id_receta)
+        </th>
+        <th></th>
+    </tr>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.observaciones)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CITA1.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ENFERMEDAD1.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RECETA1.id_receta)
+        </td>
+        <td>
+        </td>
+    </tr>
+    }
+}
+
+</table>

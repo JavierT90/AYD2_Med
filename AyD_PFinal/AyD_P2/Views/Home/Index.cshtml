@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    
+    if (Session["codigo_usuario"] == null)
+    {
+       Response.Redirect("~/Account/Login");
+
+    }
+}
+
+<div class="jumbotron">
+    <h1>MedicUsac</h1>
+    <p class="lead">Bienvenido al sistema de hospital :(</p> 
+
+    <h2>Hola @Session["usuario"]</h2>
+
+    <p><a href="https://portal.ingenieria.usac.edu.gt/" class="btn btn-primary btn-lg">PORTAL</a></p>
+</div>

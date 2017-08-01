@@ -1,0 +1,63 @@
+﻿@model IEnumerable<AyD_P2.CITA>
+
+@{
+    ViewBag.Title = "Index";
+
+    if (Session["codigo_usuario"] == null)
+    {
+        Response.Redirect("~/Account/Login");
+
+    }
+}
+
+<h2>Citas</h2>
+
+<p>
+    @Html.ActionLink("Crear", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hora)
+        </th>
+        <th>
+            Paciente
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PERSONAL1.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SALA1.nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PACIENTE1.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PERSONAL1.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SALA1.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.id_cita }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.id_cita }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.id_cita })
+        </td>
+    </tr>
+}
+
+</table>

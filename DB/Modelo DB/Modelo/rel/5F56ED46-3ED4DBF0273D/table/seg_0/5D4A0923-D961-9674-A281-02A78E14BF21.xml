@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5D4A0923-D961-9674-A281-02A78E14BF21" name="RECETA">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 12:46:49 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<ordsAlias>table_6</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_receta" id="B7D47580-9AD6-05F4-1803-E905DDC8ED01">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 12:49:44 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="medicamento" id="5B558688-27FC-6A0D-CD5C-21871DB07082">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 13:07:01 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9541668B-CB6C-2337-9E8B-47FC82009F2D" referredColumn="8B18F21E-8660-4C5B-9C03-238FF153A5A4"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6D4031D8-C336-8C9F-CDFB-338B9A76CA49" name="RECETA_PK">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-03 12:49:44 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B7D47580-9AD6-05F4-1803-E905DDC8ED01"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4CFDE181-25E8-5ECB-6856-9BB4AEE18F72" name="RECETA_MEDICAMENTO_FK">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-04 00:04:27 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5B558688-27FC-6A0D-CD5C-21871DB07082"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

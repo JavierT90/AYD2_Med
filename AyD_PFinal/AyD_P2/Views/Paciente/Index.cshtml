@@ -1,0 +1,68 @@
+﻿@model IEnumerable<AyD_P2.PACIENTE>
+
+@{
+    ViewBag.Title = "Index";
+    if (Session["codigo_usuario"] == null)
+    {
+        Response.Redirect("~/Account/Login");
+
+    }
+}
+
+<h2>Paciente</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            DPI
+        </th>
+        <th>
+            Fecha de Nacimiento
+        </th>
+        <th>
+            Teléfono
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            # de Tarjeta
+        </th>
+        <th></th>
+    </tr>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dpi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_nac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.no_tarjeta)
+        </td>
+        <td>
+            @Html.ActionLink("Detalles", "Details", new { id = item.id_paciente }) |
+            @Html.ActionLink("Historial", "../Historial/Details", new { id = item.id_paciente }) |
+        </td>
+    </tr>
+    }
+}
+
+</table>

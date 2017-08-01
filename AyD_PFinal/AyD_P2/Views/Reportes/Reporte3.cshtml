@@ -1,0 +1,37 @@
+﻿@model IEnumerable<AyD_P2.Models.Reporte3>
+
+
+ <table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_enfermedad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_enfermedad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+    </tr>
+}
+</table>
+
+<div>
+    @Html.ActionLink("Regresar", "Index")
+</div>
+
+

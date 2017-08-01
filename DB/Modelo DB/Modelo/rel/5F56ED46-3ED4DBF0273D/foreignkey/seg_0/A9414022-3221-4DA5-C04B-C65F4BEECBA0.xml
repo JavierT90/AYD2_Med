@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="A9414022-3221-4DA5-C04B-C65F4BEECBA0" containerWithKeyObject="1D2FE6C9-A748-ACEE-012D-95F5CAF18CA5" localFKIndex="3C491F35-0612-0A0C-722B-717F53A4E5A4" name="HISTORIAL_ENFERMEDAD_FK">
+<createdBy>natth</createdBy>
+<createdTime>2017-05-04 00:03:58 UTC</createdTime>
+<ownerDesignName>Modelo</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>F4B6718D-D2A1-733A-A67D-0FD78DD4B0FB</referredTableID>
+<keyObject>4E670FB9-2DD1-984C-2F1F-505741AD4DBB</keyObject>
+<referredKeyID>4E670FB9-2DD1-984C-2F1F-505741AD4DBB</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
